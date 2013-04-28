@@ -1,0 +1,1672 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+
+Event for GDG Granada about Intro to GAE
+
+Author: Esteban, organizer of GDG Granada
+Date: April 2013.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introducción a Google App Engine - GDG Granada</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <link rel="stylesheet" media="all" href="theme/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" media="all" href="theme/css/custom.css">-->
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0" class="weavebg">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/io2012_logos.png" style="height:250px;width:250px;"></span>
+      <span><img src="images/deiit logo.jpg" style="height:225px;width:422px;"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/chrome_logo.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+    <img src="images/logoGDGGAEDEIIT.png" alt="Google Cloud Platform" title="Google Cloud Platform" style="height:176px;width:360px;margin-top:400px;margin-left:550px;">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>¿Quién soy?</h2>
+    </hgroup>
+    <article id="who">
+      <p data-config-presenter-title></p>
+      <p data-config-presenter-company></p>
+      <p style="margin-top:2em;">
+        <a rel="author" data-config-gplus>
+          <img src="http://www.google.com/images/icons/ui/gprofile_button-44.png" width="44" height="44"></a> +<a rel="author" data-config-gplus><span data-config-presenter-name></span></a>
+      </p>
+      <p>
+        <a rel="author" style="margin-left:-8px;" data-config-twitter>
+          <img src="images/twitter_newbird_blue.png" width="58" height="58"></a> <a rel="author" style="margin-left:-5px;" data-config-twitter></a>
+      </p>
+      <p>
+        <a rel="author" style="margin-left:-8px;" href="https://github.com/mresti">
+          <img src="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/GitHub-Mark.png?1366128852" width="58" height="58"></a><a rel="author" href="https://github.com/mresti" style="margin-left:-5px;">mresti</a>
+      </p>
+      <img src="images/esteban.jpg" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:389px;width:292px;margin-left:500px;margin-top:-320px;">
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Cloud Computing</h2>
+      <h3>Introducción</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Intro a Cloud Computing</h2>
+    </hgroup>
+    <article>
+    <ul class="build">
+      <li><b><span class="underline">Cloud Computing:</span></b> paradigma que permite ofrecer servicios de 
+computación a través de Internet.</li>
+      <li>Los servicios se clasifican en tres grandes niveles:
+        <b>
+        <ul>
+          <li>IaaS(Infrastructure as a Service)</li>
+          <li>PaaS (Platform as a Service)</li>
+          <li>SaaS (Software as a Service)</li>
+        </ul>
+      </b>
+      </li>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup style="display:inline-block;">
+     <h2>Intro a Cloud Computing</h2>
+      <h3>Clasificación de los servicios de Cloud Computing</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/clasificacioncc.png" alt="Clasificacion del Cloud Computing" title="Clasificacion del Cloud Computing" style="height:460px;width:840px;margin-top:-150px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>¿Que es PaaS?</h2>
+    </hgroup>
+    <article>
+    <ul class="build">
+      <li>Una Plataforma como servicio (platform as a service, PaaS) es:</li>
+      <ul>
+        <li>la <b>encapsulación de una abstracción</b> de un ambiente de desarrollo y,</li>
+        <li>el <b>empaquetamiento de una serie de módulos o complementos</b> que proporcionan una funcionalidad horizontal (persistencia de datos, autenticación, mensajería, etc.).</li>
+      </ul> 
+      <li>Ejemplos comerciales: <a href="https://cloud.google.com/products/">Google App Engine</a>, 
+        <a href="http://www.force.com">Force.com</a>, <a href="http://www.windowsazure.com/es-es/">Windows Azure</a>...</li>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>PaaS: Ventajas</h2>
+    </hgroup>
+    <article>
+      <p>Permite al cliente múltiples ventajas, entre otras:</p>
+      <b>
+    <ul class="build">
+      <li>Escalabilidad garantizada</li>
+      <li>Pago por consumo = Inversión progresiva</li>
+      <li>Desarrollo más sencillo.</li>
+      <li>Integración con el resto de la plataforma</li>
+      <li>Administración remota</li>
+      <li>Despliegue transparente.</li>
+      <li>Altísima disponibilidad del 99.99%.</li>
+    </ul>
+  </b>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>PaaS: Inconvenientes</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Al integrarnos con un plataforma tenemos <b>ciertas limitaciones</b> y estamos supeditados a un proveedor, 
+          <span class="underline"><b>para lo bueno y para lo malo</b></span>:
+          <b>
+          <ul>
+            <li>Duración del contrato.</li>
+            <li>Licencias de software.</li>
+            <li>Problemas de movilidad.</li>
+          </ul>
+        </b>
+        </li>
+        <li><span class="underline"><b>Herramientas muy limitadas</b></span></li>
+        <li>Surge: <b>Plataforma Abierta como Servicio (Open Platform as a Service)</b>
+          <ul>
+            <li>Ejemplo: <a href="https://www.openshift.com/">OpenShift de Red Hat</a></li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Google Cloud Platform</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/customLogo.jpeg" alt="Google Cloud Platform" title="Google Cloud Platform" style="height:350px;width:1020px;">
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Google App Engine</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>¿Que es GAE?</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li><b>Google App Engine permite ejecutar aplicaciones web en la 
+infraestructura de Google</b></li>
+        <li><b>Características:</b></li>
+        <ul class="build">
+          <li><b>Las aplicaciones son fáciles de crear, de mantener y de ampliar</b> al ir aumentando el tráfico y las necesidades de almacenamiento de datos.</li>
+          <li>Es posible tener un <b>dominio propio para la URL de nuestra webapp</b> o bien podemos usar un <b>subdominio appspot.com</b></li>
+        </ul>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>¿Que es GAE?</h2>
+      <h3>Características</h3>
+    </hgroup>
+    <article class="build">
+    <ul class="build">
+      <li>Admite aplicaciones escritas en <b>varios lenguajes de programación:
+        <ul>
+          <li>Java</li>
+          <li>Python</li>
+          <li>Go - <span class="red">¡¡Experimental!!</span></li>
+        </ul>
+        </b>
+      </li>
+      <li><b>Pago por uso y sin coste alguno</b>: hasta 500 MB de almacenamiento y 
+        suficiente CPU y ancho de banda como para permitir un servicio eficaz 
+        de alrededor de cinco millones de visitas a la página al mes.</li>
+      <li>Es posible subir y ofrecer una aplicación a la tienda de aplicaciones 
+        “Google Apps Marketplace”.</li>
+    </ul>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Restricciones:</h2>
+    </hgroup>
+    <article>
+    <ul class="build">
+      <li><b>Permiso de lectura a los archivos del sistema de archivos.</b></li>
+      <li><b>Ejecuta código a través de consultas HTTP</b></li>
+      <li><b>Las webapps de Java tienen acceso a clases seguras del JRE estándar.</b> (<a href="https://developers.google.com/appengine/docs/java/jrewhitelist?hl=es">Listado completo</a>)</li>
+      <li><b>Las webapps de Python tienen acceso a las APIs seguras de la biblioteca Python estándar, sin uso de módulos en C, admite bibliotecas Python de terceros.</b> (<a href="https://developers.google.com/appengine/docs/python/tools/libraries?hl=es">Listado completo</a>)</li>
+      <li><b>Las sesiones y los servicios tienen un tiempo de respuesta</b></li>
+      <li><b>Las webapps no pueden crear nuevos hilos de ejecución</b></li>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Comparaciones</h2>
+    </hgroup>
+    <article>
+      <p>Desarrollo de webapps:</p>
+      <table>
+        <tr>
+          <th></th>
+          <th>Google App Engine</th>
+          <th>Web tradicional</th>
+        </tr>
+        <tr>
+          <td>Web Application Framework</td>
+          <td>Java / Python / Go</td>
+          <td>Perl, PHP, Ruby on Rails</td>
+        </tr>
+        <tr>
+          <td>Persistent Storage</td>
+          <td>DataStore</td>
+          <td>MySQL, PostgreSQL, Oracle</td>
+        </tr>
+      </table>
+      <p>Lenguajes de programación usados:</p>
+      <table>
+        <tr>
+          <th></th>
+          <th>Lenguajes de programación/Framework</th>
+        </tr>
+        <tr>
+          <td>Python</td>
+          <td>Django, CherryPy, Web2py</td>
+        </tr>
+        <tr>
+          <td>Java</td>
+          <td>JSP, JPA/JDO, Spring, Java 7</td>
+        </tr>
+      </table>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entorno de desarrollo</h2>
+    </hgroup>
+    <article>
+      <p><b>SDK Google App Engine</b> viene con un entorno de desarrollo local para ejecutar en nuestra maquina antes de subir los cambios a la nube y simula el entorno del App Engine</p>
+      <p>Para ejecutar el servidor del entorno de desarrollo tan solo debemos ejecutar en la consoloa de un sistema tipo UNIX:</p>
+      <pre class="centered" style="font-size:25px;">
+<b>$ python </b><b alt="Origin of the app" class="blue" data-tooltip="Comando inicia el servidor web"><span class="property" style="color:inherit;">dev_appserver.py</span></b> <b alt="Ruta al directorio" class="green" data-tooltip="Ruta al directorio del proyecto"><span class="property" style="color:inherit;">my_app/</span></b>
+</pre>
+      <p>El script <span class="green">dev_appserver.py</span> admite numerosas opciones, mira la ayuda para verlas.</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entorno de ejecución de python</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li>App Engine ejecuta nuestras aplicaciones mediante un intérprete de <b>Python 2.7.3</b> cargado en un entorno <b>“sandboxed“</b>.</li>
+      <li>Toda aplicación ejecutarse en Google App Engine debe incorporar un archivo de configuración llamado <span class="green">app.yaml</span> donde se configuran el entorno de ejecución y diferentes aspectos de la webapp.</li>
+      <li class="red"><b>RECORDAR LAS RESTRICCIONES DEL GAE</b></li>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entorno de ejecución de python</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li>Un ejemplo de archivo de configuración <span class="green">app.yaml</span> sería como el que sigue:</li>
+      <pre class="prettyprint" data-lang="yaml">
+application: apppollua
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: apppollua.py
+
+</pre>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>App Engine webapp framework</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Al igual que <b>Django o Rails</b>, webapp es una implementación del patrón de diseño <b>MVC (Model View Controller)</b>.</p>
+      <p>Una aplicación web que use el <b>framework WSGI compilant webapp de Google</b> sería la siguiente:</p>
+      <pre class="prettyprint" data-lang="Python">
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
+
+class MainHandler(webapp.RequestHandler):
+    def get(self):
+        self.response.headers["Content-Type"] = "text/plain"
+        self.response.out.write("Hello World!")
+
+application = webapp.WSGIApplication([('/', MainHandler)],
+                                            debug=True)
+def main():
+    run_wsgi_app(application)
+
+if __name__ == "__main__":
+    main()
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>App Engine webapp framework</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>A través del objeto <b>WSGIApplication</b> definimos mas de un <b>Handler con una URL</b></p>
+      <pre class="prettyprint" data-lang="Python">
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
+
+application = webapp.WSGIApplication([('/', MainHandler),
+                                      ('/newentry', NewEntry),
+                                      ('/editentry', EditEntry),
+                                      ('/deleteentry', DeleteEntry),
+                                     ],
+                                     debug=True)
+
+def main():
+  run_wsgi_app(application)
+
+if __name__ == '__main__':
+  main()
+</pre>
+      <ul>
+        <li>Al igual que ocurre en Django, la ruta URL es una expresión regular</li>
+        <li>También, puede utilizarse el archivo <span class="green">app.yaml</span> para asignar rutas de URL.</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="images/cycle.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:500px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Instancias</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/instances.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:500px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore</h2>
+    </hgroup>
+    <article class="build">
+      <ul class="build">
+        <li>No hacemos uso de una base de datos SQL</li>
+        <li>Usamos Google DataStore como base de datos, basándose en el enfoque de Google BigTable:
+          <ul class="build">
+            <li>Eficiencia en la escalabilidad de nuestras webapps.</li>
+            <li>Base de datos NoSQL son conocidas por su predisposición  a facilitar la escalabilidad</li>
+          </ul></li>
+        <li>Google DataStore nos provee de una interfaz de consulta a través de una cadena, <b>GQL</b></li>
+        <li><b><span class="red3">GQL no puede ejecutar JOINS en las consultas SELECT</span></b></li>
+      </ul>
+    </article>
+  </slide>
+
+  
+  <slide>
+    <hgroup>
+      <h2>DataStore</h2>
+    </hgroup>
+    <article>
+      <p>Características de la base de datos</p>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>DataStore</th>
+            <th>RDBMS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Query language flexibility</td>
+            <td>SQL-like query language: Limited to simple filter and sort</td>
+            <td>Full Support of SQL: Table JOIN, Flexible filtering, Subquery</td>
+          </tr>
+          <tr>
+            <td>Realibility and scalability</td>
+            <td>High scalable and reliable with performance</td>
+            <td>Hard to scale</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>DataStore</h2>
+    </hgroup>
+    <article>
+      <p>Características de la base de datos</p>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>DataStore</th>
+            <th>RDBMS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Category of object</td>
+            <td>Kind</td>
+            <td>Table</td>
+          </tr>
+          <tr>
+            <td>One entry/object</td>
+            <td>Entity</td>
+            <td>Row</td>
+          </tr>
+          <tr>
+            <td>Unique identifier of data entry</td>
+            <td>Key</td>
+            <td>Primary Key</td>
+          </tr>
+          <tr>
+            <td>Individual data</td>
+            <td>Property</td>
+            <td>Field</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup style="display:inline-block;">
+      <h2 class="build">DataStore</h2>
+      <h3>Propiedades del DataStore</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/dataimage.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:500px;margin-top:-80px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/datastore_03.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:500px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore</h2>
+      <h3>DataStore API</h3>
+    </hgroup>
+    <article>
+      <p><b><span class="underline">Java:</span></b></p>
+      <ul>
+        <li><b>Low level API</b>
+          <ul>
+            <li>The best performance, but more coding</li>
+          </ul>
+        </li>
+        <li><b>JDO/JPA</b>
+          <ul>
+            <li>More portability by Java standard APIs</li>
+          </ul>
+        </li>
+        <li><b>Third party frameworks</b>
+          <ul>
+            <li>Objectify, Twig, Slim3...</li>
+            <li>Sophisticated features with better performance</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>DataStore</h2>
+      <h3>DataStore API</h3>
+    </hgroup>
+    <article>
+      <p><b><span class="underline">Python:</span></b></p>
+      <ul>
+        <li><b>DB API</b>
+          <ul>
+            <li>Traditional Datastore API for Python</li>
+          </ul>
+        </li>
+        <li><b>NDB API (New DB)</b>
+          <ul>
+            <li>Automatic caching, sophisticated queries, atomic transactions</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore > Python</h2>
+    </hgroup>
+    <article>
+      <p>La forma de describir un Modelo en el DataStore es muy similar a como lo describiríamos en Django:</p>
+      <pre class="prettyprint" data-lang="python">
+from google.appengine.ext import db
+class Person(db.Model):
+    name = db.StringProperty()
+    password = db.StringProperty()
+</pre>
+      <p>Introducir un nuevo registro en el DataStore no tiene complicación alguna:</p>
+      <pre class="prettyprint" data-lang="python">
+
+newperson = Person(name="Perico", password="62f3b966a2ba0903d5b9da1440eef6c7")
+newperson.put()
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore > Python</h2>
+    </hgroup>
+    <article>
+      <p>Consultar al modelo de datos es realmente sencillo:</p>
+      <pre class="prettyprint" data-lang="python">
+query = db.Qurery(Person)
+query = query.filter('name =', name)
+query = query.filter('password = ', password)
+results = que.fetch(limit=1)
+</pre>
+      <p>Google DataStore nos provee de una interfaz de consulta a través de una cadena GQL:</p>
+      <pre class="prettyprint" data-lang="python">
+query = db.GqlQuery("SELECT * FROM Person WHERE name = :name "
+                    "AND password = :pwd ",
+                    name="Perico", 
+                    password="62f3b966a2ba0903d5b9da1440eef6c7")
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore > Java</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="java">
+
+DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
+Entity employee = new Entity("Employee");
+employee.setProperty("name", "Paco");
+employee.setProperty("hireDate", new Date());
+employee.setProperty("attendedHrTraining", true);
+datastore.put(employee);
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>DataStore > Java</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="java">
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Query;
+
+// ...
+// Get the Datastore Service
+DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
+// The Query interface assemble a query
+Query q = new Query("Person");
+q.addFilter("lastName", Query.FilterOperator.EQUAL, lastNameParam);
+q.addFilter("height", Query.FilterOperator.LESS_THAN, maxHeightParam);
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Core APIs</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/imagen1.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:500px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Memcache</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li><b>Memoria caché distribuida</b> con utilidad de almacenar datos en ella en lugar del DataStore</li>
+      <li>Se conserva el mayor tiempo posible</li>
+      <li>Los datos pueden ser expulsados de la memoria al introducir nuevos datos y la memoria es baja</li>
+      <li><b><span class="underline">Valor máximo almacenado:</span> 1 MB</b></li>
+    </ul>
+      <p>El uso del servicio es:</p>
+      <pre class="prettyprint" data-lang="python">
+from google.appengine.api import memcache
+# Añadir un valor si no existe en la cache con una caducidad de una hora.
+memcache.add(key="talla_usuario_11987", value="XXL", time=3600)
+</pre>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Extracción de URL</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li>Realiza <b>solicitudes a otros host mediante HTTP o HTPPS</b></li>
+    </ul>
+      <p>El uso del servicio es:</p>
+      <pre class="prettyprint" data-lang="python">
+from google.appengine.api import urlfetch
+
+url = "http://www.ugr.es/"
+result = urlfetch.fetch(url)
+
+if result.status_code == 200:
+  doSomethingWithResult(result.content)
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Correo</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <p>El uso del servicio es:</p>
+      <pre class="prettyprint" data-lang="python">
+from google.appengine.api import mail
+class ConfirmUserSignup(webapp.RequestHandler):
+  def post(self):
+    user_address = self.request.get("email_address")
+    if not mail.is_email_valid(user_address):
+      # prompt user to enter a valid address
+    else:
+      confirmation_url = createNewUserConfirmation(self.request)
+      sender_address = "support@example.com"
+      subject = "Confirm your registration"
+      body = """
+Thank you for creating an account!  Please confirm your email address by
+clicking on the link below:
+%s
+""" % confirmation_url
+      mail.send_mail(sender_address, user_address, subject, body)
+</pre>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Transformación de Imágenes</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li>Permite: <b>redimensionar, rotar, voltear y recortar imágenes (crop), hacer composiciones y convertir imágenes a varios formatos</b></li>
+      <li>En nuestro entorno local, es necesario que instalemos la librería de imágenes de Python (<b>PIL</b>)</li> 
+    </ul>
+      <p>El uso del servicio es:</p>
+      <pre class="prettyprint" data-lang="python">
+from google.appengine.api import images
+
+class PaginaA(webapp.RequestHandler):
+...
+avatar = images.resize(self.request.get("img"), 32, 32)
+...
+</pre>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Cuentas de Google</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li>Permite: <b>autenticar usuarios a través de Cuentas de Google</b></li>
+      <li>La aplicación puede por ejemplo acceder a la dirección de correo electrónico del usuario y a varios datos del perfil del mismo.</li>
+      <li>También se pueden autenticar usuarios usando cuentas de facebook, twitter... Se debe usar la librería OAuth2. Más info: <a href="https://developers.google.com/accounts/docs/OAuth2">aquí</a></li>
+    </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Consola del administrador</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Para acceder a la Consola, utiliza el siguiente enlace en tu navegador web:</li>
+        <pre class="prettyprint" data-lang="http">
+https://appengine.google.com/
+</pre>
+      <p>Accede a tu cuenta de Google.</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup style="display:inline-block;">
+      <h2>Consola del administrador</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/consola1.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:450px;width:950px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup style="display:inline-block;">
+      <h2>Consola del administrador</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/consola2.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:450px;width:950px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup style="display:inline-block;">
+      <h2 class="build">GAE for startups</h2>
+    </hgroup>
+    <article>
+      <p>Fecha límite hasta el <b>30 abril de 2013</b> para poder solicitar <b><span class="underline">un crédito de 1.000$ para Google App Engine</span></b>.</p>
+      <ul>
+        <li><b><span class="underline">Más info:</span></b> <a href="https://cloud.google.com/resources/startups/">https://cloud.google.com/resources/startups/</a></li>
+        <li><b><span class="underline">Verification Code:</span> GDG-02</b></li>
+      </ul>
+      <img src="images/bannergae.png" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:200px;width:900px;">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup style="display:inline-block;">
+      <h2 class="build">Bibliografía</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <a href="http://www.amazon.com/Programming-Google-App-Engine-Sanderson/dp/144939826X" style="border:none;"><img src="images/book_cover.jpg" alt="Programming Google App Engine" title="Programming Google App Engine" style="height:500px;"></a>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Enlaces de interés</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li><a href="https://developers.google.com/appengine/?hl=es">Documentación de App Engine</a></li>
+      <li><a href="https://appengine.google.com">App Engine Admin Console</a></li>
+      <li><a href="https://developers.google.com/appengine/training/">Otros tutoriales sobre GAE</a> (en inglés)</li>
+      <li><a href="https://sites.google.com/site/gdevelopercodelabs/app-engine/python-codelab">Codelab: GAE Python</a></li>
+    </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Codelab</h2>
+      <h3>Ejercicios prácticos</h3>
+    </hgroup>
+  </slide>
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Webapp en Python SDK
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Webapp > Python</h2>
+    </hgroup>
+    <article class="smaller">
+      <ul>
+        <li>Creamos un directorio llamado <span class="green">holamundo</span></li>
+        <li>Creamos el archivo <span class="green">holamundo.py</span> con el siguiente contenido:</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Python">
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
+
+class MainPage(webapp.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write('!Hola, mundo!')
+
+application = webapp.WSGIApplication(
+                                     [('/', MainPage)],
+                                     debug=True)
+
+def main():
+    run_wsgi_app(application)
+
+if __name__ == "__main__":
+    main()
+	
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Webapp > Python</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Creamos el archivo de configuración llamado <span class="green">app.yaml</span> con el siguiente contenido:</li>
+      </ul>
+      <pre class="prettyprint" data-lang="yaml">
+application: holamundo
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: holamundo.py
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Webapp > Python</h2>
+      <h3>Probando la Webapp</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Si <b class="red">utilizas</b> <b>Google App Engine Launcher</b>:</li>
+          <ul>
+            <li>Configura la App en el <b>menú Archivo>Añadir aplicación existente...</b></li>
+            <li>Selecciona el directorio <span class="green">holamundo</span></li>
+            <li>Selecciona la App en la lista de Apps</li>
+            <li>Haz clic en el botón <span class="blue">"Ejecutar"</span></li>
+            <li>Haz clic en el botón <span class="blue">"Examinar"</span> para verla</li>
+            <li><span class="blue">http://localhost:8000/</span> se carga en tu navegador web</li>
+          </ul>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Webapp > Python</h2>
+      <h3>Probando la App</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Si <b class="red">no utilizas</b> <b>Google App Engine Launcher</b>:</li>
+        <ul>
+          <li>Inicia el servidor web con el comando siguiente:</li>
+        </ul>
+      <pre class="centered" style="font-size:25px;">
+<b>$ python </b><b alt="Origin of the app" class="blue" data-tooltip="Comando inicia el servidor web"><span class="property" style="color:inherit;">GAE_Launcher/dev_appserver.py</span></b> <b alt="Ruta al directorio" class="green" data-tooltip="Ruta al directorio del proyecto"><span class="property" style="color:inherit;">GAE_python/holamundo/</span></b>
+</pre>
+        <ul>
+          <li>El servidor web se ejecutará y recibirá las solicitudes en el <b>puerto 8080</b>. Puedes probar la aplicación visitando la URL siguiente:</li>
+        </ul>
+        <pre class="centered" style="font-size:25px;" data-lang="http">
+<b><span class="blue">http://localhost:8080/</span></b>
+</pre>
+    </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Webapp en Java SDK
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Webapp > Java</h2>
+    </hgroup>
+    <article>
+      <p>El directorio completo de un proyecto es similar a:</p>
+      <pre class="prettyprint">
+Mensaje/
+  src/
+    ...Java source code...
+    META-INF/
+      ...other configuration...
+  war/
+    ...JSPs, images, data files...
+    WEB-INF/
+      ...app configuration...
+      lib/
+        ...JARs for libraries...
+      classes/
+        ...compiled classes...
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Webapp > Java</h2>
+    </hgroup>
+    <article>
+      <p>Usando eclipse, crea un nuevo proyecto haciendo clic en el botón <span class="blue">"New Web Application"</span> en la barra de herramientas:</p>
+      <ul>
+        <li>Asigna un <b>nombre al proyecto ("Project name")</b>: <span class="green">Mensaje</span></li>
+        <li>Asigna un <b>paquete ("Package")</b>: <span class="green">mensaje</span></li>
+        <li>La casilla <span class="blue">"Use Google Web Toolkit"</span> está <b>desactivada</b></li>
+        <li>La casilla <span class="blue">"Use Google App Engine"</span> está <b>activada</b></li>
+		<li>La casilla <span class="blue">"Generate project sample code"</span> está <b>activada</b></li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Mensaje webapp > Java</h2>
+    </hgroup>
+    <article>
+      <p>El directorio <span class="green">src/mensaje/</span> incluye un archivo denominado <span class="green">MensajeServlet.java</span> que contiene lo siguiente:</p>
+      <pre class="prettyprint" data-lang="java">
+package mensaje;
+
+import java.io.IOException;
+import javax.servlet.http.*;
+
+public class MensajeServlet extends HttpServlet {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
+        resp.setContentType("text/plain");
+        resp.getWriter().println("OLA K ASE");
+    }
+}
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Mensaje webapp > Java</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>El directorio <span class="green">war/WEB-INF/</span> incluye un archivo denominado <span class="green">web.xml</span> que contiene lo siguiente:</p>
+      <pre class="prettyprint" data-lang="xml">
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+    &lt;servlet>
+        &lt;servlet-name>mensaje&lt;/servlet-name>
+        &lt;servlet-class>mensaje.MensajeServlet&lt;/servlet-class>
+    &lt;/servlet>
+    &lt;servlet-mapping>
+        &lt;servlet-name>mensaje&lt;/servlet-name>
+        &lt;url-pattern>/mensaje&lt;/url-pattern>
+    &lt;/servlet-mapping>
+    &lt;welcome-file-list>
+        &lt;welcome-file>index.html&lt;/welcome-file>
+    &lt;/welcome-file-list>
+&lt;/web-app>
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Mensaje webapp > Java</h2>
+    </hgroup>
+    <article>
+      <p>El directorio <span class="green">war/WEB-INF/</span> incluye un archivo denominado <span class="green">appengine-web.xml</span> que contiene lo siguiente:</p>
+      <pre class="prettyprint" data-lang="xml">
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    &lt;application>&lt;/application>
+    &lt;version>1&lt;/version>
+&lt;/appengine-web-app>
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Mensaje webapp > Java</h2>
+    </hgroup>
+    <article>
+      Utilizando Eclipse puedes iniciar el servidor de desarrollo en el depurador de Eclipse.
+      <ul>
+        <li>Asegúrate de <b>seleccionar el proyecto ("Mensaje")</b></li>
+        <li>En el menú <b>Run (Ejecutar)</b>, selecciona <b>Debug As > Web Application (Depurar como > Aplicacion Web)</b></li>
+      </ul>
+      <p>Para obtener más información sobre cómo crear la configuración de depuración, consulta<a href="https://developers.google.com/appengine/docs/java/tools/eclipse?hl=es">Uso del complemento de Google para Eclipse</a></p>
+    </article>
+  </slide>
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Webapp básica en Python SDK
+      </q>
+    </article>
+  </slide>
+
+    <slide>
+    <hgroup>
+      <h2>Una WebApp en Python</h2>
+    </hgroup>
+    <article>
+      <p>Vamos a desarrollar una webapp muy sencilla que aprenderemos a usar:</p>
+      <ul class="build fade">
+        <li>El servicio de usuarios</li>
+        <li>Los formularios</li>
+        <li>El datastore</li>
+        <li>Las Plantillas</li>
+        <li>Los archivos estáticos <span class="green">(.css, .js,...)</span></li>
+        <li>Registro y subida de aplicaciones</li>
+      </ul>      
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Preparamos la base del webapp</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Creamos un directorio para el proyecto llamado <span class="green">saludos</span></li>
+        <li>Creamos el fichero de configuración <span class="green">saludos/app.yaml</span> con el siguiente contenido:</li>
+      </ul>
+      <pre class="prettyprint" data-lang="yaml">
+application: saludos
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: saludos.py
+
+</pre>    
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso del servicio de Usuarios</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Creamos el fichero <span class="green">saludos/saludos.py</span> con el siguiente contenido:</p>
+      <pre class="prettyprint" data-lang="Python">
+from google.appengine.api import users
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
+
+class MainPage(webapp.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+
+        if user:
+            self.response.headers['Content-Type'] = 'text/plain'
+            self.response.out.write('Hola, ' + user.nickname())
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+
+application = webapp.WSGIApplication(
+                                     [('/', MainPage)],
+                                     debug=True)
+
+def main():
+    run_wsgi_app(application)
+
+if __name__ == "__main__":
+    main()
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso de formularios</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Sustituye el contenido de <span class="green">saludos/saludos.py</span> por el siguiente:</p>
+      <pre class="prettyprint" data-lang="Python">
+import cgi
+
+from google.appengine.api import users
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
+
+class MainPage(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write("""
+          &lt;html>
+            &lt;body>
+              &lt;form action="/sign" method="post">
+                &lt;div>&lt;textarea name="content" rows="3" cols="60">&lt;/textarea>&lt;/div>
+                &lt;div>&lt;input type="submit" value="Firmar el libro de visitas">&lt;/div>
+              &lt;/form>
+            &lt;/body>
+          &lt;/html>""")
+
+# ...
+
+</pre>
+    </article>
+  </slide>
+
+   <slide>
+    <hgroup>
+      <h2>Uso de formularios</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="Python">
+# ...
+
+class Guestbook(webapp.RequestHandler):
+    def post(self):
+        self.response.out.write('&lt;html>&lt;body>You wrote:&lt;pre>')
+        self.response.out.write(cgi.escape(self.request.get('content')))
+        self.response.out.write('&lt;/pre>&lt;/body>&lt;/html>')
+
+application = webapp.WSGIApplication(
+                                     [('/', MainPage),
+                                      ('/sign', Guestbook)],
+                                     debug=True)
+
+def main():
+    run_wsgi_app(application)
+
+if __name__ == "__main__":
+    main()
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso del DataStore</h2>
+    </hgroup>
+    <article>
+      <p>Sustituye el contenido de <span class="green">saludos/saludos.py</span> por el siguiente:</p>
+      <pre class="prettyprint" data-lang="Python">
+import cgi
+
+from google.appengine.api import users
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext import db
+
+class Greeting(db.Model):
+	author = db.UserProperty()
+	content = db.StringProperty(multiline=True)
+	date = db.DateTimeProperty(auto_now_add=True)
+
+# ...
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso del DataStore</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="Python">
+# ...
+
+class MainPage(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write('<html><body>')
+
+        greetings = db.GqlQuery("SELECT * FROM Greeting ORDER BY date DESC LIMIT 10")
+
+        for greeting in greetings:
+            if greeting.author:
+                self.response.out.write('&lt;b>%s&lt;/b> escribio:' % greeting.author.nickname())
+            else:
+                self.response.out.write('Desconocido escribio:')
+            self.response.out.write('&lt;blockquote>%s&lt;/blockquote>' %
+                                    cgi.escape(greeting.content))
+
+        # Write the submission form and the footer of the page
+        self.response.out.write("""
+              &lt;form action="/sign" method="post">
+                &lt;div>&lt;textarea name="content" rows="3" cols="60">&lt;/textarea>&lt;/div>
+                &lt;div>&lt;input type="submit" value="Firmar libro de visitas">&lt;/div>
+              &lt;/form>
+            &lt;/body>
+          &lt;/html>""")
+
+# ...
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso del DataStore</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="Python">
+# ...
+
+class Guestbook(webapp.RequestHandler):
+    def post(self):
+        greeting = Greeting()
+
+        if users.get_current_user():
+            greeting.author = users.get_current_user()
+
+        greeting.content = self.request.get('content')
+        greeting.put()
+        self.redirect('/')
+
+application = webapp.WSGIApplication(
+                                     [('/', MainPage),
+                                      ('/sign', Guestbook)],
+                                     debug=True)
+
+def main():
+    run_wsgi_app(application)
+
+if __name__ == "__main__":
+    main()
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso de las plantillas</h2>
+    </hgroup>
+    <article>
+      <p>Para usar las plantillas en las webapp, hacemos uso de las plantillas de Django.</p>
+      <p>Añade las siguientes instrucciones <span class="blue">import</span> en la parte superior de <span class="green">saludos/saludos.py</span>:</p>
+      <pre class="prettyprint" data-lang="Python">
+import os
+from google.appengine.ext.webapp import template
+
+</pre>
+
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Uso de las plantillas</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Sustituye el controlador <span class="red">MainPage</span> del fichero <span class="green">saludos/saludos.py</span> por el siguiente código:</p>
+      <pre class="prettyprint" data-lang="Python">
+class MainPage(webapp.RequestHandler):
+    def get(self):
+        greetings_query = Greeting.all().order('-date')
+        greetings = greetings_query.fetch(10)
+
+        if users.get_current_user():
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Salir'
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Acceder'
+
+        template_values = {
+            'greetings': greetings,
+            'url': url,
+            'url_linktext': url_linktext,
+            }
+
+        path = os.path.join(os.path.dirname(__file__), 'index.html')
+        self.response.out.write(template.render(path, template_values))
+
+</pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Uso de las plantillas</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Finalmente, crea un nuevo archivo en el directorio <span class="green">saludos/</span> llamado <span class="green">index.html</span>, con el siguiente contenido:</p>
+      <pre class="prettyprint" data-lang="html">
+&lt;html>
+  &lt;body>
+    {% for greeting in greetings %}
+      {% if greeting.author %}
+        &lt;b>{{ greeting.author.nickname }}&lt;/b> escribió:
+      {% else %}
+       Desconocido escribió:
+      {% endif %}
+      &lt;blockquote>{{ greeting.content|escape }}&lt;/blockquote>
+    {% endfor %}
+
+    &lt;form action="/sign" method="post">
+      &lt;div>&lt;textarea name="content" rows="3" cols="60">&lt;/textarea>&lt;/div>
+      &lt;div>&lt;input type="submit" value="Firmar el libro de visitas">&lt;/div>
+    &lt;/form>
+
+    &lt;a href="{{ url }}">{{ url_linktext }}&lt;/a>
+
+  &lt;/body>
+&lt;/html>
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso de archivos estáticos</h2>
+    </hgroup>
+    <article>
+      <p>Sustituye el contenido de <span class="green">saludos/app.yaml</span> por el siguiente:</p>
+      <pre class="prettyprint" data-lang="yaml">
+application: saludos
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: saludos.py
+
+</pre>
+
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Uso de archivos estáticos</h2>
+    </hgroup>
+    <article>
+      <p>Las rutas de los controladores se prueba en el orden en que aparecen en  <span class="green">app.yaml</span> , <b>de arriba a abajo.</b></p>
+      <p>Crea el directorio  <span class="green">saludos/static/</span>. En este nuevo directorio, crea un archivo llamado <span class="green">main.css</span>, con el siguiente contenido:</p>
+      <pre class="prettyprint" data-lang="css">
+body {
+  font-family: Verdana, Helvetica, sans-serif;
+  background-color: #DDDDDD;
+}
+
+</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Uso de archivos estáticos</h2>
+    </hgroup>
+    <article>
+      <p>Finalmente, modifica <span class="green">saludos/index.html</span> e introduce las líneas siguientes justo después de la línea <span class="red">&lt;html></span> en la parte superior:</p>
+      <pre class="prettyprint" data-lang="html">
+&lt;head>
+  &lt;link type="text/css" rel="stylesheet" href="/static/main.css">
+&lt;/head>
+
+</pre>
+      <p>Vuelve a cargar la página en el navegador. La nueva versión utilizará la hoja de estilo.</p>
+    </article>
+  </slide>
+
+ <slide>
+    <hgroup>
+      <h2>Uso de las plantillas - Avanzado</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Crea un nuevo archivo en el directorio <span class="green">saludos/</span> llamado <span class="green">base.html</span>, con el siguiente contenido:</p>
+      <pre class="prettyprint" data-lang="html">
+&lt;!DOCTYPE html>
+&lt;html lang='es'>
+&lt;head>
+    &lt;meta charset='utf-8'>
+    &lt;title>Saludos</title>
+    {% block cssfiles %}{% endblock %}
+  &lt;/head>
+  &lt;body>
+
+    {% block cabecera %}{% endblock %}
+    {% block contenido %}{% endblock %}
+    {% block pie %}{% endblock %}
+
+  &lt;/body>
+&lt;/html>
+
+</pre>
+    </article>
+  </slide>
+  
+  
+  <slide>
+     <hgroup>
+       <h2>Uso de las plantillas - Avanzado</h2>
+     </hgroup>
+     <article class="smaller">
+		 <p>Usaremos el framwork <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a></p>
+		 <p>Nos decargamos el framework y copiamos el archivo <span class="green">bootstrap.min.css</span> al directorio <span class="green">/saludos/static/</span></p>
+		 <p>Hacemos un diseño html para nuestra webapp usando dicho framework.
+     </article>
+   </slide>
+
+<slide>
+    <hgroup>
+      <h2>Uso de las plantillas - Avanzado</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Editamos un archivo en el directorio <span class="green">saludos/</span> llamado <span class="green">index.html</span>, con el siguiente contenido:</p>
+      <pre class="prettyprint" data-lang="html">
+{% extends 'base.html' %}
+
+{% block cssfiles %}
+	&lt;link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
+{% endblock %}
+
+{% block cabecera %}
+  &lt;header>
+    &lt;div class="navbar-wrapper">
+	  &lt;div class="container">
+	    &lt;div class="navbar navbar-inverse">
+          &lt;div class="navbar-inner">
+            &lt;a class="brand" href="#">Libro de visitas&lt;/a>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div> 
+    &lt;/div>
+  &lt;/header>
+{% endblock %}
+
+</pre>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Uso de las plantillas - Avanzado</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="html">
+<!-- ... -->
+{% block pie %}
+   &lt;footer>
+      &lt;p class="pull-right">&lt;a href="#">Subir arriba&lt;/a>&lt;/p>
+   &lt;/footer>
+{% endblock %}
+
+{% block contenido %}
+  &lt;section class="container">
+    {% for greeting in greetings %}
+      {% if greeting.author %}
+        &lt;p class="text-info">&lt;b>{{ greeting.author.nickname }} escribió:&lt;/b>&lt;/p>
+      {% else %}
+        &lt;p class="text-warning">Desconocido escribió:&lt;/p>
+      {% endif %}
+        &lt;blockquote class='muted lead'>{{ greeting.content|escape }}&lt;/blockquote>
+      {% endfor %}  
+
+</pre>
+    </article>
+  </slide>
+  
+  <slide>
+      <hgroup>
+        <h2>Uso de las plantillas - Avanzado</h2>
+      </hgroup>
+      <article class="smaller">
+        <pre class="prettyprint" data-lang="html">
+
+        &lt;form action="/sign" method="post" class="form-horizontal">
+          &lt;legend>Firmar el libro de visitas&lt;/legend>
+          &lt;div class="control-group">
+            &lt;label class="control-label" for="inputText">
+  		    &lt;strong>Contenido:&lt;/strong>
+  	      &lt;/label>
+            &lt;div class="controls">
+              &lt;textarea name="content" rows="8">&lt;/textarea>
+            &lt;/div>
+          &lt;/div>
+          &lt;div class="control-group">
+            &lt;div class="controls">
+              &lt;input type="submit" value="Firmar" class='btn btn-success btn-large'>
+              &lt;a href="{{ url }}" class="btn btn-large btn-primary">{{ url_linktext }}&lt;/a>
+            &lt;/div>
+          &lt;/div>
+        &lt;/form>
+     &lt;/section>
+  {% endblock %}
+
+  </pre>
+      </article>
+    </slide>
+
+<slide>
+    <hgroup>
+      <h2>Subida de webapp</h2>
+      <h3>Registro de una webapp</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul>
+        <li>Puedes crear y administrar aplicaciones web App Engine desde la consola de administración de App Engine en la siguiente URL:</li>
+        <pre class="prettyprint" data-lang="http">
+https://appengine.google.com/
+</pre>
+        <li>Los usuarios de Google App Engine Launcher pueden acceder a esta URL haciendo clic en el botón <span class="blue3">"Panel de control"</span>.</li>
+        <li>Introduce: <b>nombre de usuario y contraseña de Google</b> cuando el sistema lo solicite</li>
+        <li>Para crear una nueva aplicación, haz clic en el botón para crear una aplicación y sigue las instrucciones para registrar el ID de la aplicación.</li>
+        <li>Edita el archivo <span class="green">app.yaml</span> y, a continuación, cambia el valor de <span class="red"><b>application</b></span>: por el <b>ID de la aplicación que has registrado</b>.</li>
+      </ul>
+
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Subida de webapp</h2>
+      <h3>Subida de una webapp</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Para subir a Google App Engine la webapp que has creado, ejecuta:
+        </li>
+        <pre class="prettyprint">
+gdggranada@dev ~$ python appcfg.py update saludos/
+</pre>
+        <li>O bien haz clic en <span class="blue">"Implementar"</span> en Google App Engine Launcher.</li>
+        <li>Introduce: <b>nombre de usuario y contraseña de Google</b> cuando el sistema lo solicite</li>
+        <li>Si has configurado un nombre de dominio gratuito appspot.com, la URL de tu sitio web empezará con el ID de la webapp:</li>
+        <pre class="prettyprint" data-lang="http">
+http://application-id.appspot.com
+</pre>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <article class="flexbox vcenter" id="chrome-heart">
+      <div class="chrome-logo spin"></div>
+      <h1 title="BFFs"><div class="jitter"></div> <img src="images/HTML5_Badge_128.png" style="margin-bottom:-24px;height:85px;"></h1>
+      <p class="toppadding"><a href="https://plus.google.com/+googlecloudplatform">+Google Cloud Platform Developers</a></p>
+    </article>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/chrome_logo.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt; ¡Gracias! &gt;</h2>
+      <p>Source: <a href="https://github.com/gdggranada/gae_event" class="white" style="border:none">github.com/gdggranada/GAE_Event</a></p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/io2012_logos.png" style="height:250px;width:250px;"></span>
+      <span><img src="images/deiit logo.jpg" style="height:225px;width:422px;"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!--
+<script src="js/app.js"></script>
+-->
+<script src="js/angular-1.0.0.min.js" async></script>
+</body>
+</html>

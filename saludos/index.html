@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block cssfiles %}
+<link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
+{% endblock %}
+
+{% block cabecera %}
+<header>
+	<div class="navbar-wrapper">
+	      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+	      <div class="container">
+	        <div class="navbar navbar-inverse">
+	          <div class="navbar-inner">
+	            <a class="brand" href="#">Libro de visitas</a>
+	          </div><!-- /.navbar-inner -->
+	        </div><!-- /.navbar -->
+	      </div> <!-- /.container -->
+	    </div>
+</header>
+{% endblock %}
+
+{% block pie %}
+<footer>
+    <p class="pull-right"><a href="#">Subir arriba</a></p>
+</footer>
+{% endblock %}
+
+{% block contenido %}
+<section class="container">
+{% for greeting in greetings %}
+      {% if greeting.author %}
+        <p class='text-info'><b>{{ greeting.author.nickname }} escribió:</b></p>
+
+      {% else %}
+       <p class='text-warning'>Desconocido escribió:</p>
+
+      {% endif %}
+      <blockquote class='muted lead'>{{ greeting.content|escape }}</blockquote>
+    {% endfor %}
+
+    <form action="/sign" method="post" class="form-horizontal">
+		<legend>Firmar</legend>
+      <div class="control-group">
+		  <label class="control-label" for="inputText"><strong>Contenido:</strong></label>
+		      <div class="controls">
+		        <textarea name="content" rows="8"></textarea>
+		      </div>
+	  </div>
+	  <div class="control-group">
+	      <div class="controls">
+			<input type="submit" value="Firmar el libro de visitas" class='btn btn-success btn-large'>
+			<a href="{{ url }}" class="btn btn-large btn-primary">{{ url_linktext }}</a>
+	      </div>
+	    </div>
+    </form>
+</section>
+{% endblock %}
